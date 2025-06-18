@@ -3,7 +3,6 @@ import { Button } from "../_components/button"
 import styles from "./styles.module.scss"
 import { getCookieServer } from "@/lib/cookieServer"
 import { redirect } from "next/navigation"
-import { toast } from "sonner"
 
 export default function Category(){
     const handleRegisterCategory = async (formData: FormData) => {
@@ -11,10 +10,7 @@ export default function Category(){
 
         const name = formData.get("name");
 
-        if(name === ""){
-            toast.warning("Obrigatório informar nome da categoria.");
-            return;
-        }
+        if(name === "") return;
 
         const data = {
             name,
@@ -32,7 +28,6 @@ export default function Category(){
             return;
         });
 
-        toast.success("Categoria cadastrada com sucesso!");
         redirect("/dashboard");
     }
 
