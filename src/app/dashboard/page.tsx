@@ -1,6 +1,5 @@
 import { getCookieServer } from "@/lib/cookieServer";
 import { Orders } from "./_components/orders";
-import { toast } from "sonner";
 import { api } from "@/services/api";
 import { OrderProps } from "@/lib/order.type";
 
@@ -17,7 +16,6 @@ const getOrders = async (): Promise<OrderProps[] | []> => {
         return response.data || [];
     }
     catch {
-        toast.error("Ocorreu um erro ao buscar os pedidos. Por favor, tente novamente mais tarde.");
         return [];
     }
 }
